@@ -1,7 +1,7 @@
 ### 注意
 
-    * 这是**两个**工程: `hot` 和 `test`
-    * 如果需要使用`https`，需要先导入根证书：`RootCA/HiiPack.pem`
+* 这是**两个**工程: `hot` 和 `test`
+* 如果需要使用`https`，需要先导入根证书：`RootCA/HiiPack.pem`
 
 
 ### 运行
