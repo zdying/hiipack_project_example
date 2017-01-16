@@ -1,0 +1,111 @@
+set $local 127.0.0.1:8800;
+set $var1 This_is_global_a_var_from_test;
+set $token l9a1_j(*!du-7a9=_aaaa;
+
+#domain blog.zdy.com {
+#    ssl_certificate     /cert/www.zdy.com.crt;
+#    ssl_certificate_key ./cert/www.zdy.com.key;
+#
+#    location / {
+#        proxy_pass http://$local/;
+#    }
+#}
+
+#domain www.zdy.com {
+#    ssl_certificate     /cert/www.zdy.com.crt;
+#    ssl_certificate_key ./cert/www.zdy.com.key;
+#
+#    location / {
+#        proxy_pass http://$local/;
+#    }
+#}
+
+domain test.pack.com {
+    set_header Server Hiipack;
+
+    proxy_set_header Server_From "Hiipack";
+    proxy_set_header Server_Version "v1.1.0";
+    proxy_set_header jjjjjjjjjjjjjjjjjj  ";;;;;;;;;;;;;;";
+    proxy_set_cookie newCookie newCookieVlaue;
+
+    ssl_certificate     /cert/test.pack.com.crt;
+    ssl_certificate_key ./cert/test.pack.com.key;
+
+    proxy_set_header AABBBCCCCC "afadlafalfafafafafafafafafaafafafafafa";
+
+
+    location / {
+        proxy_pass http://$local/;
+
+        proxy_hide_header User-Agent;
+    }
+
+    location /hot/ {
+        proxy_pass http://$local/hot/;
+    }
+
+    location /test/ {
+        proxy_pass http://$local/test/;
+
+        proxy_set_header AABBBCCCCC "nnnnbnbnbnbnbnbnbnbnnbnbnbnbnbnbnbnbnbnbnbnbnbnbnbnbnbn";
+
+        proxy_hide_cookie local;
+
+        set_cookie loaaaaacal aaaaaaaaocal;
+        set_cookie token $token;
+        set_cookie local $local;
+
+        hide_header X-powered-by;
+
+        set_header Server1 Hiipack;
+        set_header Server1 Hiipack1;
+
+        proxy_set_header Source test;
+    }
+
+    location /source/ {
+        alias /Users/zdy/Desktop/example/hot/public/;
+
+        set_header SOURCE /Users/zdy/Desktop/example/hot/public;
+        set_header VAR _$var1;
+        set_header local_server $local;
+
+        root index.html;
+    }
+
+    location /doc/ {
+        proxy_pass https://nodejs.org/en/;
+        proxy_set_header Host nodejs.org;
+
+        proxy_hide_header If-Modified-Since;
+        proxy_hide_header Cache-Control;
+    }
+
+    location ~ /\/(static|en|dist)\/(.*)/ {
+        proxy_pass https://nodejs.org/$1/$2;
+        proxy_set_header Host nodejs.org;
+    }
+
+    location /https/ {
+        proxy_pass http://127.0.0.1:8800$path;
+    }
+
+    location /global_var/ {
+        proxy_pass https://127.0.0.1:10010/;
+        proxy_set_header Host 127.0.0.1:10010;
+    }
+}
+
+test.com => {
+    set_header Server Hiipack;
+    set_header Version v1.1.0;
+
+    location / {
+        set_header isHome true;
+        proxy_pass http://$local/test/src/index.html;
+    }
+
+    location /test/ {
+        proxy_pass http://$local/test/;
+    }
+}

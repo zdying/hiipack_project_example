@@ -1,0 +1,37 @@
+set $local 127.0.0.1:8800;
+set $var This_is_global_a_var;
+
+hii.pack.com => {
+    set_header Server Hiipack;
+
+    proxy_set_header Server_From "Hiipack";
+    proxy_set_header Server_Version "v1.1.0";
+
+    ssl_certificate     ./cert/hii.pack.com.crt;
+    ssl_certificate_key ./cert/hii.pack.com.key;
+
+    location / {
+        proxy_pass http://$local/;
+    }
+
+    location /hot/ {
+        proxy_pass http://$local/hot/;
+    }
+
+    location /test/ {
+        proxy_pass http://$local/test/;
+
+        proxy_set_header Source test;
+    }
+
+    location /source/ {
+        alias /Users/zdy/Desktop/example/hot/public/;
+
+        set_header SOURCE /Users/zdy/Desktop/example/hot/public;
+        set_header VAR $var;
+        set_header local $local;
+        set_header Access-Control-Allow-Origin *;
+
+        root index.html;
+    }
+}
