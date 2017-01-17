@@ -36,7 +36,7 @@ export default class Hello extends Component {
                         values.map((val, idx) => {
                             return (
                                 <li key={idx}>
-                                    {idx} ==========> {val}
+                                    {idx} ===> {val}
                                 </li>
                             )
                         })

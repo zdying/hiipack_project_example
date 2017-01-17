@@ -1,0 +1,7 @@
+{
+  "source": "./",
+  "server": "",
+  "path": "",
+  "sudo": true,
+  "exclude": [".idea", ".git", ".DS_Store", "node_modules", "prd", "loc", "env", "src", "dll"]
+}
