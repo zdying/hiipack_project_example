@@ -3,7 +3,7 @@ set $var1 This_is_global_a_var_from_test;
 set $token l9a1_j(*!du-7a9=_aaaa;
 
 #domain blog.zdy.com {
-#    ssl_certificate     /cert/www.zdy.com.crt;
+#    ssl_certificate     ./cert/www.zdy.com.crt;
 #    ssl_certificate_key ./cert/www.zdy.com.key;
 #
 #    location / {
@@ -12,7 +12,7 @@ set $token l9a1_j(*!du-7a9=_aaaa;
 #}
 
 #domain www.zdy.com {
-#    ssl_certificate     /cert/www.zdy.com.crt;
+#    ssl_certificate     ./cert/www.zdy.com.crt;
 #    ssl_certificate_key ./cert/www.zdy.com.key;
 #
 #    location / {
@@ -28,7 +28,7 @@ domain test.pack.com {
     proxy_set_header jjjjjjjjjjjjjjjjjj  ";;;;;;;;;;;;;;";
     proxy_set_cookie newCookie newCookieVlaue;
 
-    ssl_certificate     /cert/test.pack.com.crt;
+    ssl_certificate     ./cert/test.pack.com.crt;
     ssl_certificate_key ./cert/test.pack.com.key;
 
     proxy_set_header AABBBCCCCC "afadlafalfafafafafafafafafaafafafafafa";
