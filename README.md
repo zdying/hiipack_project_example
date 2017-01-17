@@ -29,7 +29,7 @@
     http://localhost:8800/
 
     https://hii.pack.com/
-    https://hii.pack.com/
+    https://test.pack.com/
 
     https://hii.pack.com/hot/src/index.html
     https://test.pack.com/test/src/index.html
