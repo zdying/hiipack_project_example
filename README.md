@@ -1,18 +1,23 @@
 ### 注意
 
-* 这是**两个**工程: `hot` 和 `test`
+* 这是**三个**工程: `hot` / `test` 和 `ensure`
 * 如果需要使用`https`，需要先导入根证书：`RootCA/HiiPack.pem`
 
 
 ### 运行
 
     npm install hiipack -g
+
     cd hot
     npm install
+
     cd test
     npm install
 
-    hii start -xo --https
+    cd ensure
+    npm install
+
+    sudo hii start -xo --https
 
 ### 编译
 
