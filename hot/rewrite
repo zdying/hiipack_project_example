@@ -33,5 +33,80 @@ hii.pack.com => {
         set_header Access-Control-Allow-Origin *;
 
         root index.html;
+
+        set_cookie cookie1 c1;
+        set_cookie cookie2 c2;
+    }
+}
+
+www.zdy.com => {
+    set_header Server Hiipack;
+
+    proxy_set_header Server_From "Hiipack";
+    proxy_set_header Server_Version "v1.1.0";
+
+    ssl_certificate     ./cert/www.zdy.com.crt;
+    ssl_certificate_key ./cert/www.zdy.com.key;
+
+    location / {
+        alias ./public/;
+
+        set_header Access-Control-Allow-Origin *;
+
+        root index.html;
+    }
+}
+
+www.z.com => {
+    set_header Server Hiipack;
+
+    proxy_set_header Server_From "Hiipack";
+    proxy_set_header Server_Version "v1.1.0";
+
+    ssl_certificate     ./cert/www.zdy1.com.crt;
+    ssl_certificate_key ./cert/www.zdy1.com.key;
+
+    location / {
+        alias ./public/;
+
+        set_header Access-Control-Allow-Origin *;
+
+        root index.html;
+    }
+}
+
+www.d.com => {
+    set_header Server Hiipack;
+
+    proxy_set_header Server_From "Hiipack";
+    proxy_set_header Server_Version "v1.1.0";
+
+    ssl_certificate     ./cert/www.zdy1.com.crt;
+    ssl_certificate_key ./cert/www.zdy1.com.key;
+
+    location / {
+        alias ./public/;
+
+        set_header Access-Control-Allow-Origin *;
+
+        root index.html;
+    }
+}
+
+blog.y.com => {
+    set_header Server Hiipack;
+
+    proxy_set_header Server_From "Hiipack";
+    proxy_set_header Server_Version "v1.1.0";
+
+    ssl_certificate     ./cert/www.zdy1.com.crt;
+    ssl_certificate_key ./cert/www.zdy1.com.key;
+
+    location / {
+        alias ./public/;
+
+        set_header Access-Control-Allow-Origin *;
+
+        root index.html;
     }
 }

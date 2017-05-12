@@ -20,19 +20,28 @@ set $token l9a1_j(*!du-7a9=_aaaa;
 #    }
 #}
 
+domain blog.pack.com {
+    ssl_certificate     ./cert/test.pack.com.crt;
+    ssl_certificate_key ./cert/test.pack.com.key;
+
+
+    location / {
+        proxy_pass http://$local;
+
+        set_cookie blog_user zdying;
+        set_cookie blog_id "zdying_1026";
+    }
+}
+
 domain test.pack.com {
     set_header Server Hiipack;
 
     proxy_set_header Server_From "Hiipack";
     proxy_set_header Server_Version "v1.1.0";
-    proxy_set_header jjjjjjjjjjjjjjjjjj  ";;;;;;;;;;;;;;";
     proxy_set_cookie newCookie newCookieVlaue;
 
     ssl_certificate     ./cert/test.pack.com.crt;
     ssl_certificate_key ./cert/test.pack.com.key;
-
-    proxy_set_header AABBBCCCCC "afadlafalfafafafafafafafafaafafafafafa";
-
 
     location / {
         proxy_pass http://$local/;
